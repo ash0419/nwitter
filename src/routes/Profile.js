@@ -47,18 +47,29 @@ const Profile = ({ userObj, refreshUser }) => {
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit}>
-                <input type="text" onChange={onChange} palceholder="Display name" value={newDisplayName} />
-                <input type="submit" value="Update Profile" />
-            </form>
-            <button onClick={onLogOutClick}>Log Out</button>
-            {/* <div>
-                {nweets.map((nweet) => (
-                    <Nweet key={nweet.id} nweetObj={nweet} isOwner={nweet.creatorId === userObj.uid} />
-                ))}
-            </div> */}
-        </>
+        <div className="container">
+        <form onSubmit={onSubmit} className="profileForm">
+          <input
+            onChange={onChange}
+            type="text"
+            placeholder="Display name"
+            value={newDisplayName}
+            autoFocus
+            className="formInput"
+          />
+          <input
+            type="submit"
+            value="Update Profile"
+            className="formBtn"
+            style={{
+              marginTop: 10,
+            }}
+          />
+        </form>
+        <span className="formBtn cancelBtn logOut" onClick={onLogOutClick}>
+          Log Out
+        </span>
+      </div>
     )
 }
 
